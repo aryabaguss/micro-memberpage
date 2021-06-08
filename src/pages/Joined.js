@@ -7,7 +7,7 @@ import courses from "constants/api/courses";
 import ServerError from "pages/500";
 import Loading from "parts/Loading";
 
-export default function Joined({ history, match }) {
+export default function Joined({history, match }) {
   const [state, setstate] = useState(() => ({
     isLoading: true,
     isError: false,
@@ -25,7 +25,7 @@ export default function Joined({ history, match }) {
       if (error?.response?.data?.message === "user already take this course")
         history.push(`/courses/${match.params.class}`);
     }
-  }, [history]);
+  }, [match.params.class]);
 
   useEffect(() => {
     joining();
